@@ -1,0 +1,10 @@
+﻿  Stack.cpp
+C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.h(13,2): warning C4091: 'typedef ': ignored on left of 'Node' when no variable is declared
+  (compiling source file 'Stack.cpp')
+  
+C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.h(18,2): warning C4091: 'typedef ': ignored on left of 'Stack' when no variable is declared
+  (compiling source file 'Stack.cpp')
+  
+C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.cpp(55,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'char *'
+C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.cpp(55,10): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'char *'
+  23120057.vcxproj -> C:\Users\Admin\Desktop\Do An 2\23120057\x64\Debug\23120057.exe
