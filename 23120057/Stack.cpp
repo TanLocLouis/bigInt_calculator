@@ -3,56 +3,58 @@
 
 Node* createNode(char* value) {
 	Node* newNode = new Node;
-	newNode->data = value;
-	newNode->pNext = NULL;
+	if (newNode != NULL) {
+		newNode->data = value;
+		newNode->pNext = NULL;
+	}
 	return newNode;
 }
 
-void Init(Stack& st) {
-	st.pHead = NULL;
-	st.size = 0;
+void Init(Stack* st) {
+	st->pHead = NULL;
+	st->size = 0;
 }
 
-bool isEmpty(Stack st) {
-	return st.pHead == NULL;
+bool IsEmpty(Stack* st) {
+	return st->pHead == NULL;
 }
 
-void push(Stack& st, char* value) {
-	if (isEmpty(st)) {
-		st.pHead = createNode(value);
+void Push(Stack* st, char* value) {
+	if (IsEmpty(st)) {
+		st->pHead = createNode(value);
 	}
 	else {
 		Node* newNode = createNode(value);
-		newNode->pNext = st.pHead;
-		st.pHead = newNode;
+		newNode->pNext = st->pHead;
+		st->pHead = newNode;
 	}
-	st.size++;
+	st->size++;
 }
 
-int getSize(Stack& st) {
-	return st.size;
+int GetSize(Stack* st) {
+	return st->size;
 }
 
-char* topS(Stack& st) {
-	return st.pHead->data;
+char* Top(Stack* st) {
+	return st->pHead->data;
 }
 
-char* popS(Stack& st) {
+char* Pop(Stack* st) {
 	char* res = NULL;
-	if (!isEmpty(st)) {
-		Node* tmp = st.pHead;
-		st.pHead = st.pHead->pNext;
+	if (!IsEmpty(st)) {
+		Node* tmp = st->pHead;
+		st->pHead = st->pHead->pNext;
 		res = tmp->data;
 		delete tmp;
-		st.size--;
+		st->size--;
 	}
 	return res;
 }
 
-void output(Stack st) {
-	Node* head = st.pHead;
+void output(Stack* st) {
+	Node* head = st->pHead;
 	while (head) {
-		printf("%d ", head->data);
+		printf("%s ", head->data);
 		head = head->pNext;
 	}
 	printf("\n");

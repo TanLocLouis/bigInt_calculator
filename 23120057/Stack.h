@@ -17,18 +17,18 @@ typedef struct Stack {
 	int size;
 };
 
-Node* createNode(int value);
+Node* createNode(char* value);
 
-void Init(Stack& st);
+void Init(Stack* st);
 
-bool isEmpty(Stack st);
+bool IsEmpty(Stack* st);
 
-void push(Stack& st, int value);
+void Push(Stack* st, char* value);
 
-int getSize(Stack& st);
+int GetSize(Stack* st);
 
-int top(Stack& st);
+char* Top(Stack* st);
 
-int pop(Stack& st);
+char* Pop(Stack* st);
 
-void output(Stack st);
+void output(Stack* st);
