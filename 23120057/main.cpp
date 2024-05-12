@@ -112,6 +112,15 @@ char* Plus(const char* val1, const char* val2) {
 char* Minus(const char* val1, const char* val2) {
     int len1 = strlen(val1);
     int len2 = strlen(val2);
+
+    // Check if val2 is greater than val1
+    if (len1 < len2 || (len1 == len2 && strcmp(val1, val2) < 0)) {
+        // Swap operands
+        std::swap(val1, val2);
+        std::swap(len1, len2);
+        std::cout << "Result is negative: ";
+    }
+
     int maxLen = std::max(len1, len2);
     int borrow = 0;
     char* res = new char[maxLen + 1];
@@ -149,6 +158,7 @@ char* Minus(const char* val1, const char* val2) {
 }
 
 
+
 void Calc(Stack* postfix) {
     Stack* operands = new Stack;
     Init(operands);
@@ -184,8 +194,6 @@ void Calc(Stack* postfix) {
                 break;
             }
         }
-        cout << "hihi: ";
-        output(operands);
     }
 
     cout << "hehe" << endl;
@@ -257,7 +265,7 @@ int main() {
     //inputData(data, nEquation);
 
     // Xu li tung dong cua file
-    Stack* postfix = infixToPostfix("(20-12)+(4+3)");
+    Stack* postfix = infixToPostfix("(3-2)+(3+12)");
     output(postfix);
     Calc(postfix);
 

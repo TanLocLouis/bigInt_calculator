@@ -1,3 +1,4 @@
+#pragma once
 #pragma warning(disable: 4996)
 
 #include <iostream>
@@ -5,6 +6,8 @@
 #include <string>
 #include <sstream>
 #include <cmath>
+#include "BigInt.h"
+
 using namespace std;
 
 typedef struct Node {
