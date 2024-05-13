@@ -2,16 +2,14 @@
 #pragma warning(disable: 4996)
 
 #include <iostream>
-#include <stack>
-#include <string>
-#include <sstream>
-#include <cmath>
+#include <string.h>
+#include <math.h>
 #include "BigInt.h"
 
 using namespace std;
 
 typedef struct Node {
-	char* data;
+	BigInt data;
 	Node* pNext;
 };
 
@@ -20,18 +18,18 @@ typedef struct Stack {
 	int size;
 };
 
-Node* createNode(char* value);
-
+Node* createNode(BigInt value);
 void Init(Stack* st);
 
 bool IsEmpty(Stack* st);
 
-void Push(Stack* st, char* value);
+void Push(Stack* st, BigInt value);
 
 int GetSize(Stack* st);
 
-char* Top(Stack* st);
+BigInt Top(Stack* st);
 
-char* Pop(Stack* st);
+BigInt Pop(Stack* st);
 
 void output(Stack* st);
+

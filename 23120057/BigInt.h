@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <iostream>
 
 using namespace std;
 
@@ -49,6 +48,10 @@ inline void swapCharPointers(char*& ptr1, char*& ptr2) {
     ptr2 = temp;
 }
 
+inline bool isOperator(char op) {
+    return (op == '+' || op == '-' || op == '*' || op == '/');
+}
+
 struct BigInt {
     char* value;
     char sign;
@@ -67,17 +70,26 @@ struct BigInt {
         return temp;
     }
 
-    BigInt lltoBigInt(const char* num) {
+    BigInt chartoBigInt(const char* num) {
         BigInt res;
+
+        if (strlen(num) == 1 && isOperator(num[0])) {
+            res.sign = NULL;
+            res.value = new char[2];
+            res.value[0] = num[0];
+            res.value[1] = '\0';
+            
+            return res;
+        }
 
         if (num[0] == '-') {
             res.sign = '-';
-            res.value = new char[strlen(num) + 1];
+            res.value = new char[strlen(num)];
             strcpy(res.value, num + 1);
         }
         else {
             res.sign = '+';
-            res.value = new char[strlen(num) + 1];
+            res.value = new char[strlen(num)];
             strcpy(res.value, num);
         }
 
@@ -222,6 +234,7 @@ struct BigInt {
             result.sign = '-';
         }
 
+
         // So lon nhat phai la so dau tien
         if (strcmp(val1, val2) < 0) {
             swapCharPointers(val1, val2);
@@ -318,14 +331,15 @@ struct BigInt {
         res.value = new char[1];
         res.value[0] = '\0';
         res.sign = '+';
+
         // Cac truong hop dac biet
         if (strlen(this->value) < strlen(num.value)) {
-            BigInt tmp = tmp.lltoBigInt("0");
+            BigInt tmp = tmp.chartoBigInt("0");
             return tmp;
         }
         if (strlen(this->value) == strlen(num.value)) {
             if (strcmp(this->value, num.value) < 0) {
-                BigInt tmp = tmp.lltoBigInt("0");
+                BigInt tmp = tmp.chartoBigInt("0");
                 return tmp;
             }
         }

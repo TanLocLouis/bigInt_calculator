@@ -1,7 +1,7 @@
 #pragma warning(disable: 4996)
 #include "Stack.h"
 
-Node* createNode(char* value) {
+Node* createNode(BigInt value) {
 	Node* newNode = new Node;
 	if (newNode != NULL) {
 		newNode->data = value;
@@ -19,7 +19,7 @@ bool IsEmpty(Stack* st) {
 	return st->pHead == NULL;
 }
 
-void Push(Stack* st, char* value) {
+void Push(Stack* st, BigInt value) {
 	if (IsEmpty(st)) {
 		st->pHead = createNode(value);
 	}
@@ -35,12 +35,12 @@ int GetSize(Stack* st) {
 	return st->size;
 }
 
-char* Top(Stack* st) {
+BigInt Top(Stack* st) {
 	return st->pHead->data;
 }
 
-char* Pop(Stack* st) {
-	char* res = NULL;
+BigInt Pop(Stack* st) {
+	BigInt res;
 	if (!IsEmpty(st)) {
 		Node* tmp = st->pHead;
 		st->pHead = st->pHead->pNext;
@@ -54,7 +54,7 @@ char* Pop(Stack* st) {
 void output(Stack* st) {
 	Node* head = st->pHead;
 	while (head) {
-		printf("%s ", head->data);
+		printf("%c%s ", head->data.sign, head->data.value);
 		head = head->pNext;
 	}
 	printf("\n");
