@@ -140,6 +140,7 @@ struct BigInt {
             tmp[strlen(num.value) - strlen(this->value)] = '\0';
             strcat(tmp, this->value);
             strcpy(this->value, tmp);
+            delete[] tmp;
         }
         else {
             char* tmp = new char[strlen(this->value) + 1];
@@ -149,6 +150,7 @@ struct BigInt {
             tmp[strlen(this->value) - strlen(num.value)] = '\0';
             strcat(tmp, num.value);
             strcpy(num.value, tmp);
+            delete[] tmp;
         }
 
         // Cong hai gia tri
@@ -179,6 +181,9 @@ struct BigInt {
         else {
             result.sign = '+';
         }
+
+        delete[] val1;
+        delete[] val2;
 
         return result;
     }
