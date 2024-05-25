@@ -1,4 +1,5 @@
 #pragma warning (disable : 4996)
+
 #pragma once
 #include <stdio.h>
 #include <stdlib.h>
@@ -166,6 +167,7 @@ struct BigInt {
         short sum = 0, carry = 0;
         for (int i = strlen(this->value) - 1; i >= 0; i--) {
             sum = (val1[i] - '0') + (val2[i] - '0') + carry;
+
             result.value = concatCharBeforeString((char)((sum % 10) + 48), result.value);
             carry = sum / 10;
         }

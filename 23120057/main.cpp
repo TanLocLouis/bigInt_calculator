@@ -1,5 +1,6 @@
 #pragma warning(disable: 4996)
 #include "Stack.h"
+#include "utils.h"
 
 int precedence(char op) {
     if (op == '+' || op == '-')
@@ -152,13 +153,18 @@ void inputData(char**& data, int& nEquation) {
     }
 
     int index = 0;
-    char tmp[1500];
+    char tmp[1000];
     // Doc data tu file
     while (fgets(tmp, sizeof(tmp), file) != NULL) {
-        data[index] = new char[1000];
-        // fgets se lay ki tu \n o cuoi dong
+        data[index] = new char[strlen(tmp)];
+
+        // fgets se lay ki tu \n
+        // nen phai loai bo
         if (tmp[strlen(tmp) - 1] == '\n')
             tmp[strlen(tmp) - 1] = '\0';
+
+        eliminateSpace(tmp);
+
         strcpy(data[index], tmp);
         index++;
     }
