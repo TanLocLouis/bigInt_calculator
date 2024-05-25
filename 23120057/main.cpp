@@ -156,7 +156,7 @@ void inputData(char**& data, int& nEquation) {
     char tmp[1000];
     // Doc data tu file
     while (fgets(tmp, sizeof(tmp), file) != NULL) {
-        data[index] = new char[strlen(tmp)];
+        data[index] = new char[strlen(tmp) + 1];
 
         // fgets se lay ki tu \n
         // nen phai loai bo

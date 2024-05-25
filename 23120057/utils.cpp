@@ -4,7 +4,7 @@
 #include <string.h>
 
 void eliminateSpace(char* s) {
-	char* ans = new char[strlen(s)];
+	char* ans = new char[strlen(s) + 1];
 
 	int index = 0;
 	for (int i = 0; i < strlen(s); i++) {

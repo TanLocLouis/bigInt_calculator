@@ -85,12 +85,12 @@ struct BigInt {
 
         if (num[0] == '-') {
             res.sign = '-';
-            res.value = new char[strlen(num)];
+            res.value = new char[strlen(num) + 1];
             strcpy(res.value, num + 1);
         }
         else {
             res.sign = '+';
-            res.value = new char[strlen(num)];
+            res.value = new char[strlen(num) + 1];
             strcpy(res.value, num);
         }
 
@@ -132,6 +132,13 @@ struct BigInt {
             return -(lhs - num);
         }
 
+        // Khoi tao hai gia tri
+        int len = max(strlen(this->value), strlen(num.value));
+        char* val1 = new char[len + 1];
+        strcpy(val1, this->value);
+        char* val2 = new char[len + 1];
+        strcpy(val2, num.value);
+
         // Them so 0 vao so nho hon
         if (strlen(this->value) < strlen(num.value)) {
             char* tmp = new char[strlen(num.value) + 1];
@@ -140,7 +147,7 @@ struct BigInt {
             }
             tmp[strlen(num.value) - strlen(this->value)] = '\0';
             strcat(tmp, this->value);
-            strcpy(this->value, tmp);
+            strcpy(val1, tmp);
             delete[] tmp;
         }
         else {
@@ -150,22 +157,17 @@ struct BigInt {
             }
             tmp[strlen(this->value) - strlen(num.value)] = '\0';
             strcat(tmp, num.value);
-            strcpy(num.value, tmp);
+            strcpy(val2, tmp);
             delete[] tmp;
         }
 
         // Cong hai gia tri
-        char* val1 = new char[strlen(this->value) + 1];
-        strcpy(val1, this->value);
-        char* val2 = new char[strlen(num.value) + 1];
-        strcpy(val2, num.value);
-
         BigInt result;
         result.value = new char[1];
         result.value[0] = '\0';
 
         short sum = 0, carry = 0;
-        for (int i = strlen(this->value) - 1; i >= 0; i--) {
+        for (int i = strlen(val1) - 1; i >= 0; i--) {
             sum = (val1[i] - '0') + (val2[i] - '0') + carry;
 
             result.value = concatCharBeforeString((char)((sum % 10) + 48), result.value);
@@ -203,9 +205,10 @@ struct BigInt {
             return -(lhs + num);
         }
 
-        char* val1 = new char[strlen(this->value) + 1];
+        int len = max(strlen(this->value), strlen(num.value));
+        char* val1 = new char[len + 1];
         strcpy(val1, this->value);
-        char* val2 = new char[strlen(num.value) + 1];
+        char* val2 = new char[len + 1];
         strcpy(val2, num.value);
 
 
@@ -320,8 +323,6 @@ struct BigInt {
             }
 
             res = res + tmp;
-
-            delete[] tmp.value;
         }
 
         // Xet dau
