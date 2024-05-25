@@ -335,12 +335,16 @@ struct BigInt {
     }
 
     BigInt operator/(const BigInt& num) const {
+        BigInt abs_num = num;
+        abs_num.sign = '+';
+
         BigInt res;
         res.value = new char[1];
         res.value[0] = '\0';
         res.sign = '+';
 
         // Cac truong hop dac biet
+        // So nho chia so lon
         if (strlen(this->value) < strlen(num.value)) {
             BigInt tmp = tmp.chartoBigInt("0");
             return tmp;
@@ -356,7 +360,7 @@ struct BigInt {
         strcpy(val1, this->value);
         char* val2 = new char[strlen(num.value) + 1];
         strcpy(val2, num.value);
-
+       
         int m = strlen(this->value);
         int n = strlen(num.value);
 
@@ -365,6 +369,7 @@ struct BigInt {
         remain.value = new char[1];
         remain.value[0] = '\0';
         remain.sign = '+';
+
         while (i < m) {
             // Them so vao so du cho du
             while (strlen(remain.value) < n) {
@@ -379,12 +384,12 @@ struct BigInt {
             // Tinh so don
             int count = 0;
             while (remain.sign == '+') {
-                remain = remain - num;
+                remain = remain - abs_num;
                 count++;
             }
             // Bu lai phan bi am
             // This shit is so complicated :v
-            remain = remain + num;
+            remain = remain + abs_num;
 
             res.value = concatCharAfterString((char)(count - 1 + 48), res.value);
         }

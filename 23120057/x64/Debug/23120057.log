@@ -23,10 +23,10 @@ C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(297,15): warning C4267
 C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(307,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Stack.cpp')
   
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(360,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(364,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Stack.cpp')
   
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(361,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(365,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Stack.cpp')
   
 C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.h(14,2): warning C4091: 'typedef ': ignored on left of 'Node' when no variable is declared
@@ -60,10 +60,10 @@ C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(297,15): warning C4267
 C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(307,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(360,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(364,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(361,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(365,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
 C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.h(14,2): warning C4091: 'typedef ': ignored on left of 'Node' when no variable is declared

@@ -2,6 +2,9 @@
 #include "Stack.h"
 #include "utils.h"
 
+const int MAX_DIGIT = 1000;
+const int MAX_ROW = 1000;
+
 int precedence(char op) {
     if (op == '+' || op == '-')
         return 1;
@@ -27,11 +30,33 @@ Stack* infixToPostfix(const char* infix) {
     int start = 0, end = 0;
 
     while (infix[index] != NULL) {
+        // Xu li so am
+        if (infix[index] == '(' && infix[index + 1] == '-') {
+            start = index + 1;
+            while (true) {
+                if (infix[index] == ')') {
+                    index++;
+                    break;
+                }
+                index++;
+            }
+
+            end = index - 2;
+            // split value
+            char* operand = (char*)malloc((end - start + 1 + 1) * sizeof(char));
+            strncpy(operand, infix + start, (end - start + 1));
+            operand[end - start + 1] = '\0';
+
+            BigInt tmp = tmp.chartoBigInt(operand);
+            Push(postfix, tmp);
+
+            continue;
+        }
+
         // Number
         if (isalnum(infix[index])) {
             if (index > 0 && !isalnum(infix[index - 1]) && isalnum(infix[index])) {
                 start = index;
-
             }
 
             if ((index < strlen(infix) - 1 && isalnum(infix[index]) && !isalnum(infix[index + 1])) || (index == strlen(infix) - 1) && isalnum(infix[index])) {
@@ -101,10 +126,12 @@ void Calc(Stack* postfix, BigInt* result, int& nResult) {
     while (!IsEmpty(postfix)) {
         char* tmp = new char[strlen(Top(postfix).value) + 1];
         tmp = Top(postfix).value;
+        char tmp_sign = Top(postfix).sign;
         Pop(postfix);
 
         if (!isOperator(tmp)) {
             BigInt tmp1 = tmp1.chartoBigInt(tmp);
+            tmp1.sign = tmp_sign;
             Push(operands, tmp1);
         }
         else {
@@ -153,7 +180,7 @@ void inputData(char**& data, int& nEquation) {
     }
 
     int index = 0;
-    char tmp[1000];
+    char tmp[MAX_DIGIT];
     // Doc data tu file
     while (fgets(tmp, sizeof(tmp), file) != NULL) {
         data[index] = new char[strlen(tmp) + 1];
@@ -203,13 +230,12 @@ void clearData(char**& data, int& nEquation, BigInt*& result, int& nResult) {
 int main() {
 
     // Doc du lieu tu file
-    char** data = new char* [1000];
+    char** data = new char* [MAX_DIGIT];
     int nEquation = 0;
     inputData(data, nEquation);
 
-
     // Xu li tung dong cua file
-    BigInt* result = new BigInt[1000];
+    BigInt* result = new BigInt[MAX_ROW];
     int nResult = 0;
 
     for (int i = 0; i < nEquation; i++) {
@@ -219,7 +245,6 @@ int main() {
 
     // Ghi du lieu ra file
     outputData(result, nResult);
-
 
     // Giai phong bo nho
     clearData(data, nEquation, result, nResult);
