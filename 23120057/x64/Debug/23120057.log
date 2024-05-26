@@ -1,41 +1,4 @@
-﻿  Stack.cpp
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(104,17): warning C4244: 'argument': conversion from '__int64' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(136,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(170,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(208,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(257,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(258,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(297,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(307,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(364,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(365,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.h(14,2): warning C4091: 'typedef ': ignored on left of 'Node' when no variable is declared
-  (compiling source file 'Stack.cpp')
-  
-C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.h(19,2): warning C4091: 'typedef ': ignored on left of 'Stack' when no variable is declared
-  (compiling source file 'Stack.cpp')
-  
-  main.cpp
+﻿  main.cpp
 C:\Users\Admin\Desktop\Do An 2\23120057\23120057\BigInt.h(104,17): warning C4244: 'argument': conversion from '__int64' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
@@ -72,5 +35,4 @@ C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.h(14,2): warning C4091: '
 C:\Users\Admin\Desktop\Do An 2\23120057\23120057\Stack.h(19,2): warning C4091: 'typedef ': ignored on left of 'Stack' when no variable is declared
   (compiling source file 'main.cpp')
   
-  Generating Code...
   23120057.vcxproj -> C:\Users\Admin\Desktop\Do An 2\23120057\x64\Debug\23120057.exe

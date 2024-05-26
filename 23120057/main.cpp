@@ -202,6 +202,10 @@ void inputData(char**& data, int& nEquation) {
 }
 
 void outputData(BigInt* result, int nResult) {
+    printf(" ----------------------------------------------------------------\n");
+    printf("|                 Tinh thanh cong %d bieu thuc                    |\n", nResult);
+    printf(" ----------------------------------------------------------------\n\n");
+
     FILE* file;
     char fileUrl[101];
     printf("2. Nhap vao duong dan ketqua (vi du: ketqua.txt): ");
@@ -218,6 +222,10 @@ void outputData(BigInt* result, int nResult) {
         fprintf(file, "%c%s\n", result[i].sign, result[i].value);
     }
 
+    printf(" ----------------------------------------------------------------\n");
+    printf("|                   Xuat ket qua thanh cong                      |\n");
+    printf(" ----------------------------------------------------------------\n\n");
+
     fclose(file);
 }
 
@@ -228,6 +236,14 @@ void clearData(char**& data, int& nEquation, BigInt*& result, int& nResult) {
 
 
 int main() {
+    printf(" ----------------------------------------------------------------\n");
+    printf("|              Chuong trinh tinh bieu thuc so lon                |\n");
+    printf(" ----------------------------------------------------------------\n");
+    printf("Ho tro cac phep toan +=*/\n");
+    printf("So lon co the len den 1000 chu so/\n");
+    printf("Ho tro so am\n");
+    printf("Co the tinh len den 1000 bieu thuc\n");
+    printf(" ----------------------------------------------------------------\n\n");
 
     // Doc du lieu tu file
     char** data = new char* [MAX_DIGIT];
