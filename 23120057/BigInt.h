@@ -79,7 +79,7 @@ struct BigInt {
             res.value = new char[2];
             res.value[0] = num[0];
             res.value[1] = '\0';
-            
+
             return res;
         }
 
@@ -129,7 +129,11 @@ struct BigInt {
         else if (this->sign == '-' && num.sign == '+') {
             BigInt lhs = *this;
             lhs.sign = '+';
-            return -(lhs - num);
+
+            BigInt res = -(lhs - num);
+            // neu ket qua la -0 thi doi thanh +0
+            if (strlen(res.value) == 1 && res.value[0] == '0') res.sign = '+';
+            return res;
         }
 
         // Khoi tao hai gia tri
@@ -284,6 +288,10 @@ struct BigInt {
         while (result.value[0] == '0') {
             result.value = result.value + 1;
         }
+        // Neu khong con so nao thi ket qua la 0
+        if (strlen(result.value) == 0) {
+            result.value = concatCharAfterString('0', result.value);
+        }
 
         return result;
     }
@@ -360,7 +368,7 @@ struct BigInt {
         strcpy(val1, this->value);
         char* val2 = new char[strlen(num.value) + 1];
         strcpy(val2, num.value);
-       
+
         int m = strlen(this->value);
         int n = strlen(num.value);
 
@@ -370,16 +378,33 @@ struct BigInt {
         remain.value[0] = '\0';
         remain.sign = '+';
 
-        while (i < m) {
-            // Them so vao so du cho du
-            while (strlen(remain.value) < n) {
+        // Them so vao so du cho du
+        while (strlen(remain.value) < n) {
+            remain.value = concatCharAfterString(val1[i], remain.value);
+            i++;
+        }
+        // Neu van nho hon thi lay them 1
+        if (strcmp(remain.value, val2) < 0) {
+            remain.value = concatCharAfterString(val1[i], remain.value);
+            i++;
+        }
+        bool notFirst = false;
+        while (i < m || !notFirst) {
+            // Lan dau tien thi khong can lay them so tu so bi chia vao so du
+            if (notFirst) {
                 remain.value = concatCharAfterString(val1[i], remain.value);
                 i++;
             }
-            // Neu van nho hon thi lay them 1
-            if (strcmp(remain.value, val2) < 0) {
-                remain.value = concatCharAfterString(val1[i], remain.value);
-                i++;
+            notFirst = true;
+
+            // Them so 0 vao ket qua neu so du van nho hon so chia
+            if (strlen(remain.value) < n) {
+                res.value = concatCharAfterString('0', res.value);
+                continue;
+            }
+            if (strlen(remain.value) == n && strcmp(remain.value, val2) < 0) {
+                res.value = concatCharAfterString('0', res.value);
+                continue;
             }
             // Tinh so don
             int count = 0;
@@ -388,9 +413,8 @@ struct BigInt {
                 count++;
             }
             // Bu lai phan bi am
-            // This shit is so complicated :v
+            // This damm shit is so complicated :v
             remain = remain + abs_num;
-
             res.value = concatCharAfterString((char)(count - 1 + 48), res.value);
         }
 

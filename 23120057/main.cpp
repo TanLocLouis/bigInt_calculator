@@ -2,8 +2,8 @@
 #include "Stack.h"
 #include "utils.h"
 
-const int MAX_DIGIT = 1000;
-const int MAX_ROW = 1000;
+const int MAX_DIGIT = 10000;
+const int MAX_ROW = 10000;
 
 int precedence(char op) {
     if (op == '+' || op == '-')
@@ -240,9 +240,9 @@ int main() {
     printf("|              Chuong trinh tinh bieu thuc so lon                |\n");
     printf(" ----------------------------------------------------------------\n");
     printf("Ho tro cac phep toan +=*/\n");
-    printf("So lon co the len den 1000 chu so/\n");
+    printf("So lon co the len den 10000 chu so/\n");
     printf("Ho tro so am\n");
-    printf("Co the tinh len den 1000 bieu thuc\n");
+    printf("Co the tinh len den 10000 bieu thuc\n");
     printf(" ----------------------------------------------------------------\n\n");
 
     // Doc du lieu tu file
